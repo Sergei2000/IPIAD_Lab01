@@ -326,12 +326,12 @@ public class Main
             ParsePageThread t2 = new ParsePageThread();
 
             ParsePageThread t4 = new ParsePageThread();
-            ContentPrinter t5 = new ContentPrinter();
+            //ContentPrinter t5 = new ContentPrinter();
             t1.run();
             t3.run();
             t2.run();
             t4.run();
-            t5.run();
+           // t5.run();
             while(true)
             {
                 parser(GetPage("https://news.mail.ru/"));

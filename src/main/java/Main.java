@@ -167,7 +167,7 @@ class ParsePageThread extends Thread
         }
         catch (Exception e)
         {
-            System.out.println("error appending Page");
+            System.out.println("error appending Page " + e.toString());
             return;
         }
     }
@@ -205,6 +205,7 @@ class ParsePageThread extends Thread
         }
         catch (Exception e)
         {
+
             return;
         }
     }
@@ -226,7 +227,7 @@ class DownloadPageThread extends Thread
         }
         catch (Exception e)
         {
-            System.out.println("error appending Page");
+            System.out.println("error appending Page" + e.toString());
             return;
         }
 
@@ -334,9 +335,16 @@ public class Main
            // t5.run();
             while(true)
             {
-                parser(GetPage("https://news.mail.ru/"));
-                Thread.sleep(10000);
-                break;
+                try {
+                    System.out.println("I am alive");
+                    parser(GetPage("https://news.mail.ru/"));
+                    Thread.sleep(10000);
+                }
+                catch (Exception e)
+                {
+                    Thread.sleep(10000);
+                    continue;
+                }
             }
 
         }
